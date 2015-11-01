@@ -1,0 +1,135 @@
+  /* legends */
+  #legend { margin-top: 134px; }
+  span.key { display: block; float: left; }
+  #male-key, #female-key, #song-key, #full-song-key {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 6px;
+    margin: 6px 2px 2px 16px;
+  }
+  #male-key     { background-color: blue; }
+  #female-key   { background-color: pink; }
+  #full-song-key{ background-color: #8DED51; }
+  #song-key     { background-color: #52D600; border: 1px solid #307D00;}
+
+  #keyboard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+  }
+  /* basic note styles*/
+  .note {
+    float: left;
+    text-align: center;
+    position: relative;
+  }
+  .white-note {
+    width: 27px;
+    height: 20px;
+    border: 2px solid black;
+    margin: 0;
+    padding-top: 95px;
+    font-size: 0.8em;
+  }
+  .black-note {
+    width: 20px;
+    height: 30px;
+    background-color: black;
+    border: 2px solid black;
+    margin: 0 0 0 -11px;
+    color: white;
+    padding-top: 30px;
+    font-size: 0.6em;
+  }
+
+  .white-note + .white-note {
+    border-left: 0;
+  }
+  .black-note + .white-note {
+    margin-left: -15px;
+    border-left: 0;
+  }
+
+  /* note "on" (highlight) styles*/
+  .note .on:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: yellow;
+    opacity: 0.7;
+    filter:alpha(opacity=70); /* For IE8 and earlier */
+    z-index: 100;
+  }
+  .white-note .on:before {
+    width: 27px;
+    height: 115px;
+  }
+  .black-note .on:before {
+    width: 20px;
+    height: 60px;
+  }
+
+  /* male/female common range styles */
+  .male-range:after, .female-range:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 27px;
+    height: 0;
+  }
+  .male-range:after {
+    top: 65px;
+    border-top: 4px solid blue;
+  }
+  .female-range:before {
+    top: 90px;
+    border-top: 4px solid pink;
+  }
+
+  /* selected lyrics range styles */
+  .lyrics-range:after {
+    content: "";
+    position: absolute;
+    background-color: #52D600;
+    left: 0;
+    top: 0;
+    height: 12px;
+    z-index: 80;
+    border-top: 1px solid #307D00;
+    border-bottom: 1px solid #307D00;
+  }
+  .lyrics-range.start:after {
+    border-left: 1px solid #307D00;
+  }
+  .lyrics-range.end:after {
+    border-right: 1px solid #307D00;
+  }
+  .white-note .lyrics-range:after {
+    top: 74px;
+    width: 27px;
+  }
+  .black-note .lyrics-range:after {
+    top: 74px;
+    width: 22px;
+  }
+
+  /* full song range styles */
+  .song-range:after {
+    content: "";
+    position: absolute;
+    background-color: #8DED51;
+    left: 0;
+    height: 7px;
+    z-index: 60;
+  }
+  .white-note .song-range:after {
+    top: 77px;
+    width: 27px;
+  }
+  .black-note .song-range:after {
+    top: 77px;
+    width: 22px;
+  }
